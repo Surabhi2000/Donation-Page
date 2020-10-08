@@ -1,14 +1,14 @@
 <?php
 if(isset($_POST['submit'])){
-    $name= mysqli_real_escape_string($con, $_POST['name']);
-    $city=mysqli_real_escape_string($con, $_POST['city']);
-    $mail=mysqli_real_escape_string($con, $_POST['mail']);
-    $password=mysqli_real_escape_string($con, $_POST['password']);
+    $name= mysqli_real_escape_string($conn, $_POST['name']);
+    $city=mysqli_real_escape_string($conn, $_POST['city']);
+    $mail=mysqli_real_escape_string($conn, $_POST['mail']);
+    $password=mysqli_real_escape_string($conn, $_POST['password']);
     
     $pass=password_hash($password,PASSWORD_BCRYPT);
 
     $insertquery="INSERT INTO user_information (Name, City, Email, Password) VALUES ('$name','$city','$mail','$pass')";
-    if(mysqli_query($con, $insertquery)){
+    if(mysqli_query($conn, $insertquery)){
         ?>
         <script>
             alert("Registration Successfully");
@@ -16,8 +16,8 @@ if(isset($_POST['submit'])){
         <?php
     }
     else{
-        echo "Error: " . $insertquery . "" . mysqli_error($con);
+        echo "Error: " . $insertquery . "" . mysqli_error($conn);
     }
-    mysqli_close($con);
+    mysqli_close($conn);
  }  
  ?>
