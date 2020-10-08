@@ -66,7 +66,7 @@
                 <?php
                     include 'connection.php';
                     $sql = "SELECT Id,Name, City FROM user_information";
-                    $result = $con->query($sql);
+                    $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Name"] . "</td><td>"
@@ -74,7 +74,7 @@
                     }
                     echo "</table>";
                     } else { echo "0 results"; }
-                    $con->close();
+                    $conn->close();
                 ?>
             </table>    
         </div>
