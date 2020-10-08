@@ -67,7 +67,7 @@
                     include 'connection.php';
                     $sql = "SELECT Id,Name, City FROM user_information";
                     $result = mysqli_query($conn,$sql) or die ('error');
-                    if (mysqli_numb_rows($result)>0) {
+                    if (mysqli_num_rows($result)>0) {
                     while($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Name"] . "</td><td>"
                     . $row["City"]. "</td></tr>";
